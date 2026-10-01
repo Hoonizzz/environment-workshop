@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#d9ff45" />
+    <title>Neighborhood — Semantic Street Model</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="app">
+      <div id="scene" aria-label="Interactive 3D neighborhood simulation"></div>
+
+      <header class="topbar glass">
+        <a class="brand" href="#" aria-label="Neighborhood home">
+          <span class="brand-mark"><i></i><i></i><i></i></span>
+          <span>NEIGHBORHOOD<span class="registered">®</span></span>
+        </a>
+        <div class="status">
+          <span class="status-dot"></span>
+          <span>LIVE SIMULATION</span>
+          <span class="divider"></span>
+          <span id="clock">14:32:08</span>
+        </div>
+      </header>
+
+      <section class="entity-panel glass" aria-label="Entity information">
+        <div class="eyebrow"><span>ENTITY / 01</span><span class="live-tag">● ACTIVE</span></div>
+        <div class="entity-heading">
+          <span class="human-glyph">◆</span>
+          <div><h1>HUMAN</h1><p>Autonomous agent</p></div>
+        </div>
+        <div class="metrics">
+          <div><span>POSITION</span><strong id="position">X 0.0&nbsp;&nbsp; Z 4.2</strong></div>
+          <div><span>MOVEMENT</span><strong id="movement" class="accent">MOVING</strong></div>
+          <div><span>DIRECTION</span><strong id="direction">NORTH</strong></div>
+          <div><span>SPEED</span><strong id="speed">1.2 M/S</strong></div>
+        </div>
+        <div class="relationship"><span>HUMAN</span><b>PASSING</b><span>STREET</span></div>
+      </section>
+
+      <section class="street-panel glass" aria-label="Street information">
+        <div class="panel-title"><span>STREET / 01</span><span class="chip">TRAVERSABLE</span></div>
+        <div class="street-grid">
+          <div><span>WIDTH</span><strong>8.4 M</strong></div>
+          <div><span>SURFACE</span><strong>DRY</strong></div>
+          <div><span>TRAFFIC</span><strong>ONE WAY ↑</strong></div>
+          <div><span>CROSSWALK</span><strong class="accent">PRESENT</strong></div>
+        </div>
+      </section>
+
+      <aside class="legend glass" aria-label="Scene legend">
+        <p>SCENE ENTITIES</p>
+        <button class="legend-row selected" data-focus="human"><span class="swatch lime"></span><span><b>HUMAN</b><small>Agent 01</small></span><em>●</em></button>
+        <button class="legend-row" data-focus="street"><span class="swatch dark"></span><span><b>STREET</b><small>Main street</small></span><em>●</em></button>
+        <button class="legend-row" data-focus="furniture"><span class="swatch coral"></span><span><b>FURNITURE</b><small>4 objects</small></span><em>●</em></button>
+      </aside>
+
+      <div id="notice" class="notice" role="status">Agent moving north</div>
+
+      <nav class="toolbar glass" aria-label="Human agent actions">
+        <div class="tool-actions">
+          <button class="tool active" data-action="move"><span>↑</span><b>MOVE</b><kbd>M</kbd></button>
+          <button class="tool" data-action="turn"><span>↱</span><b>TURN</b><kbd>T</kbd></button>
+          <button class="tool" data-action="stop"><span>■</span><b>STOP</b><kbd>S</kbd></button>
+          <button class="tool" data-action="avoid"><span>⌁</span><b>AVOID</b><kbd>A</kbd></button>
+          <button class="tool" data-action="reroute"><span>⑂</span><b>REROUTE</b><kbd>R</kbd></button>
+        </div>
+        <div class="rule-state"><span class="shield">◇</span><span><small>RULE STATUS</small><b>ALL CONSTRAINTS MET</b></span></div>
+      </nav>
+
+      <div class="hint"><span>DRAG</span> ORBIT VIEW <i></i><span>SCROLL</span> ZOOM</div>
+    </main>
+    <script type="importmap">
+      {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.168.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.168.0/examples/jsm/"}}
+    </script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
